@@ -1,12 +1,9 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_cubit/pages/navpages/home_page.dart';
 import './bar_item_page.dart';
 import './my_page.dart';
 import './search_page.dart';
-import './home_page.dart';
+import '../home_page.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key? key}) : super(key: key);
