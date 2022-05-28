@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../cubit/app_cubits.dart';
 import '../widgets/app_large_text.dart';
 import '../widgets/app_text.dart';
 import '../misc/colors.dart';
@@ -59,19 +61,31 @@ class _WelcomePageState extends State<WelcomePage> {
                           SizedBox(
                             height: 20,
                           ),
-                          ResponsiveButton(),
+                          GestureDetector(
+                            onTap: () {
+                              BlocProvider.of<AppCubits>(context).getData();
+                            },
+                            child: Container(
+                                width: 200, child: Row(
+                                  children: [
+                                    ResponsiveButton(),
+                                  ],
+                                )),
+                          ),
                         ],
                       ),
                       Column(
                         children: List.generate(
                             3,
                             (indexDots) => Container(
-                              margin: const EdgeInsets.only(bottom: 2),
+                                  margin: const EdgeInsets.only(bottom: 2),
                                   width: 8,
-                                  height: index==indexDots?25:8,
+                                  height: index == indexDots ? 25 : 8,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
-                                    color:index==indexDots? AppColors.mainColor:AppColors.mainColor.withOpacity(0.3),
+                                    color: index == indexDots
+                                        ? AppColors.mainColor
+                                        : AppColors.mainColor.withOpacity(0.3),
                                   ),
                                 )),
                       )
